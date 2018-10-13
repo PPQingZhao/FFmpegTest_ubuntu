@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
     private TextView sample_text;
     private Jni jni;
-    /*　ctrl + shift + U 大小写快捷键*/
+    /*-->　ctrl + shift + U 大小写快捷键*/
     private String SDCARDPATH = Environment.getExternalStorageDirectory().getAbsolutePath();
 
     @Override
