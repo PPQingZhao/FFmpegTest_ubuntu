@@ -5,19 +5,26 @@ package com.example.pp.ffmpegtest.jni;
  */
 
 public class Jni {
-    static{
+    static {
         System.loadLibrary("native-lib");
     }
 
-    public native String stringFromJNI();
+
+    public static native String stringFromJNI();
 
     /**
-     * @param url 路径
-     * @param handle　窗口句柄
+     * @param url    路径
+     * @param handle 　窗口句柄
      * @return
      */
-    public native boolean open(String url,Object handle);
+    public native static boolean open(String url, Object handle);
 
-    public native void jiefengzhuang(String url);
+    //解封装
+    public native static void jiefengzhuang(String url);
 
+    //解码器
+    public native static void avdeCode(String url);
+
+    //视频像素和尺寸转换
+    public native static void pixAndSizeChange(String url);
 }
