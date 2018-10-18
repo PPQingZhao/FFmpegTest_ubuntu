@@ -1,0 +1,9 @@
+<resources>
+
+    <style name="BaseTheme" parent="AppTheme">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>

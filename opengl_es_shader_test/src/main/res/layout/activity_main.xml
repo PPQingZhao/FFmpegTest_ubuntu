@@ -4,37 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pp.ffmpegtest.MainActivity">
+    tools:context="com.example.pp.opengl_es_shader_test.MainActivity">
 
     <FrameLayout
-        android:fitsSystemWindows="true"
-        android:id="@+id/statusbar"
+        android:id="@+id/xplay"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:layout_height="0dp"
+        android:background="@android:color/black"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
     </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/videoViewer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#000000"
-        app:layout_constraintDimensionRatio="16:9"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/statusbar"></FrameLayout>
-
     <TextView
-        android:id="@+id/sample_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/videoViewer" />
+        app:layout_constraintTop_toBottomOf="@id/xplay" />
 
 </android.support.constraint.ConstraintLayout>

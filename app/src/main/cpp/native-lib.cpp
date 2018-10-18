@@ -589,7 +589,8 @@ Java_com_example_pp_ffmpegtest_jni_Jni_open(JNIEnv *env, jobject instance, jstri
     int vWidth= avCodecContext_video->width;
     int vHeight = avCodecContext_video->height;
     //设置 窗口的大小和格式
-    ANativeWindow_setBuffersGeometry(aNativeWindow,vWidth,vHeight,WINDOW_FORMAT_RGBA_8888);
+//    ANativeWindow_setBuffersGeometry(aNativeWindow,vWidth,vHeight,WINDOW_FORMAT_RGBA_8888);
+    ANativeWindow_setBuffersGeometry(aNativeWindow,outWidth,outHeight,WINDOW_FORMAT_RGBA_8888);
     ANativeWindow_Buffer aNativeWindow_buffer;
 
     for (;;) {
@@ -655,17 +656,15 @@ Java_com_example_pp_ffmpegtest_jni_Jni_open(JNIEnv *env, jobject instance, jstri
                                       lines);
                     LOGE("===============>>sws_scale  h : %d ", h);
                      if (h > 0){
-                         LOGE("===============>>111111111");
                          //锁住窗口全部区域
                          ANativeWindow_lock(aNativeWindow,&aNativeWindow_buffer,NULL);
-                         LOGE("===============>>222222222");
+                         LOGE("===============>>222222222  aNativeWindow_buffer %p ",aNativeWindow_buffer);
                          uint8_t  *dst = (uint8_t *) aNativeWindow_buffer.bits;
                          //复制到显卡交换缓冲区当中进行交换
-                         memcpy(dst,rgb_buf,vWidth*vHeight*4); //一个像素点四个字节
-                         LOGE("===============>>3333333");
+//                         memcpy(dst,rgb_buf,vWidth*vHeight*4); //一个像素点四个字节
+                         memcpy(dst,rgb_buf,outWidth*outHeight*4); //一个像素点四个字节
                          //
                          ANativeWindow_unlockAndPost(aNativeWindow);
-                         LOGE("===============>>4444444444");
                      }
                 }
 
@@ -692,4 +691,11 @@ Java_com_example_pp_ffmpegtest_jni_Jni_open(JNIEnv *env, jobject instance, jstri
     avformat_close_input(&avFormatContext);
     env->ReleaseStringUTFChars(url_, url);
     return true;
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_pp_ffmpegtest_jni_Jni_openSlTest(JNIEnv *env, jclass type, jstring url_) {
+    const char *url = env->GetStringUTFChars(url_, 0);
+    env->ReleaseStringUTFChars(url_, url);
 }

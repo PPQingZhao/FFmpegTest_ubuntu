@@ -1,4 +1,4 @@
-package com.example.pp.ffmpegtest.XPlay;
+package com.example.pp.opengl_es_shader_test.XPlay;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 
-import com.example.pp.ffmpegtest.jni.Jni;
+import com.example.pp.opengl_es_shader_test.jni.Jni;
 
 import java.io.File;
 
@@ -50,12 +50,12 @@ public class XPlay extends GLSurfaceView implements Runnable,SurfaceHolder.Callb
     @Override
     public void run() {
         Log.e(TAG, "===============>> getHolder().getSurface(): " +getHolder().getSurface());
-        Jni.open(SDCARDPATH + File.separator + "ffmpeg/VID_20181015_164136.mp4", getHolder().getSurface());
+        Jni.open(SDCARDPATH + File.separator + "ffmpeg/out.yuv", getHolder().getSurface());
     }
 
     private String SDCARDPATH = Environment.getExternalStorageDirectory().getAbsolutePath();
 
-    class GLRenderer implements GLSurfaceView.Renderer {
+    class GLRenderer implements Renderer {
         @Override
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
             Log.e(TAG,"=============>>  onSurfaceCreated");

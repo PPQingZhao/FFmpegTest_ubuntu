@@ -4,6 +4,7 @@ import android.Manifest;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -57,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 //        Jni.pixAndSizeChange(SDCARDPATH + File.separator+"ffmpeg/VID_20181015_164136.mp4");
 //        XPlay xPlay = ThreadPool.obtain(getApplicationContext());
         XPlay xPlay = new XPlay(this);
+        xPlay.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT));
         videoViewer.addView(xPlay);
     }
 

@@ -27,4 +27,7 @@ public class Jni {
 
     //视频像素和尺寸转换
     public native static void pixAndSizeChange(String url);
+
+    //使用opensl播放音频
+    public native static void openSlTest(String url);
 }
